@@ -1,0 +1,18 @@
+description: Ultralytics plate model trained on data.yaml
+author: Ultralytics
+date: '2025-12-12T23:05:00.660436'
+version: 8.3.200
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: tablicaRejestracyjna
+args:
+  batch: 1
+  half: true
+channels: 3

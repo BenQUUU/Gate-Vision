@@ -1,0 +1,54 @@
+cameras:
+  in:
+    source: ""
+    width: 960
+    height: 540
+    fps: 10
+  out:  
+    source: ""  
+    width: 1920
+    height: 1080
+    fps: 30
+
+zones_out:   
+  A: [[200, 400], [1080, 400], [1080, 550], [200, 550]]   
+  B: [[300, 600], [980, 600], [980, 700], [300, 700]]     
+  max_seconds_A_to_B: 4        
+  min_bbox_area: 12000         
+  min_speed_px_per_s: 30       
+
+detection:
+  plate_model: "models/plate_ncnn_model"
+  conf_thr: 0.5
+  iou_thr: 0.45
+
+ocr:
+  engine: "paddleocr"
+  tesseract_psm: 7
+  whitelist_regex: "^[A-Z0-9]{4,8}$"
+  preprocess:
+    clahe: true
+    denoise: true
+
+gate:
+  relay_pin: 17                
+  relay_active_high: true     
+  pulse_sec: 1.0
+
+  opening_timeout: 5
+  open_auto_close: 15
+  closing_timeout: 10
+  cooldown_after_close: 8
+  grace_sec: 30
+
+  use_limit_switch: false
+  limit_switch_pin_closed: null
+  limit_switch_pin_open: null
+
+paths:
+  whitelist_file: "data/whitelist.txt"
+  log_file: "data/events.log"
+
+debug:
+  draw_overlays: true
+  show_windows: true
